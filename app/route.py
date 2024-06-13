@@ -82,6 +82,7 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
     return render_template("account.html", title="Account", image_file=image_file, form=form)
 
+
 @app.route("/new_post", methods=['POST', 'GET'])
 @login_required
 def new_post():
@@ -180,3 +181,6 @@ def reset_token(token):
         flash("Your password has been updated! You are now able to log in", "success")
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
+
+
+# TODO add error handling for 404 0r 500
